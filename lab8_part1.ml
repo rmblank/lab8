@@ -113,7 +113,7 @@ module MakeInterval (Endpoint : ORDERED_TYPE) =
        and `intvl2` *)
     let intersect (intvl1 : interval) (intvl2 : interval) : interval =
       match intvl1,intvl2 with
-      | (low1, high1), (low2, high2) -> if compare (max low1 low2) (min high1 high2) < 0 then Interval ((max low1 low2), (min high1 high2)) else Empty
+      | Interval (low1, high1), Interval (low2, high2) -> if compare (max low1 low2) (min high1 high2) < 0 then Interval ((max low1 low2), (min high1 high2)) else Empty
       | _ -> Empty
     end ;;
 
