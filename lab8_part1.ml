@@ -107,7 +107,7 @@ module MakeInterval (Endpoint : ORDERED_TYPE) =
     let contains (intvl : interval) (x : Endpoint.t) : bool =
       match intvl with
       | Empty -> false
-      | (low, high) -> if x >= low && x <= high then true else false
+      | Interval (low, high) -> if x >= low && x <= high then true else false
 
     (* intersect intvl1 intvl2 -- Returns the intersection of `intvl1`
        and `intvl2` *)
