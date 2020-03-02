@@ -92,11 +92,8 @@ module MakeInterval (Endpoint : ORDERED_TYPE) =
       | Interval of Endpoint.t * Endpoint.t
       | Empty
 
-    (* create low high -- Returns a new interval covering `low` to
-       `high` inclusive. If `low` is greater than `high`, then the
-       interval is empty. *)
     let create (low : Endpoint.t) (high : Endpoint.t) : interval =
-      if compare low high < 0 then Interval (low * high) else Empty
+      if compare low high <= 0 then Interval (low,high) else Empty
 
     (* is_empty intvl -- Returns true if and only if `intvl` is
        empty *)
