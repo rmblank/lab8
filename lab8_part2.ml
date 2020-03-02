@@ -165,8 +165,6 @@ module IntStringSerialize =
   end ;;
 
 module IntStringStack = 
-  struct
-    MakeStack(IntStringSerialize)
-  end ;;
+    MakeStack(IntStringSerialize) ;;
 
 
