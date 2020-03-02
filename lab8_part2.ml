@@ -135,11 +135,14 @@ Exercise 1B: Now, make a module `IntStack` by applying the functor
 that you just defined to an appropriate module for serializing integers.
 ......................................................................*)
 
-module IntStack = 
+module IntSerialize = 
   struct 
     type t = int
     let serialize = string_of_int
   end ;;
+
+module IntStack = 
+  MakeStack(IntSerialize) ;;
 
 (*......................................................................
 Exercise 1C: Make a module `IntStringStack` that creates a stack whose
